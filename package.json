@@ -1,16 +1,19 @@
 {
 	"name": "skill-icons",
 	"version": "1.0.0",
-	"main": "index.js",
 	"license": "MIT",
 	"scripts": {
-		"dev": "node build.js && miniflare --watch",
-		"build": "node build.js",
-		"deploy": "node build.js && wrangler publish"
+		"dev": "node build.js && next dev",
+		"build": "node build.js && next build",
+		"start": "next start",
+		"lint": "next lint"
+	},
+	"dependencies": {
+		"next": "^14.0.0",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
-		"@cloudflare/wrangler": "^1.19.8",
-		"miniflare": "^2.3.0",
 		"prettier": "^2.5.1"
 	}
 }
