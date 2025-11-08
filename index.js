@@ -90,6 +90,23 @@ function parseShortNames(names, theme = 'dark') {
   });
 }
 
+/**
+ * Handle an incoming HTTP Request and return the appropriate Response for the icons API.
+ *
+ * Routes:
+ * - GET /icons : returns a combined SVG of requested icons; requires `i` or `icons` query param, optional `t|theme` ("light" or "dark") and `perline`.
+ * - GET /api/icons : returns a JSON array of available icon base names.
+ * - GET /api/svgs : returns a JSON object of all SVG data.
+ * - GET / : returns a simple HTML landing page describing the API.
+ * - any other path : returns 404 with a plain-text list of available endpoints.
+ *
+ * Validation and error behavior:
+ * - Missing or malformed query parameters for /icons produce 400 responses with descriptive messages.
+ * - `theme` must be "light" or "dark"; `perline` must be a number between 1 and 50.
+ *
+ * @param {Request} request - The incoming fetch Request whose URL and query parameters determine the response.
+ * @returns {Response} A Response containing SVG, JSON, HTML, or an error status depending on the requested path and parameters.
+ */
 async function handleRequest(request) {
   const { pathname, searchParams } = new URL(request.url);
 
