@@ -128,5 +128,6 @@ out
 .yarn/install-state.gz
 .pnp.*
 
-# Cloudflare Worker
-worker/
+# Next.js
+.next
+out

@@ -1,15 +1,5 @@
 {
-  "version": 2,
   "buildCommand": "npm run build",
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/api"
-    },
-    {
-      "source": "/icons",
-      "destination": "/api/icons"
-    }
-  ]
+  "framework": "nextjs"
 }
 

@@ -3,7 +3,7 @@
 <h3 align="center">Showcase your skills on your GitHub or resumé with ease!</h3>
 <hr>
 
-<h3 align="center">Powered by Cloudflare Workers ⚡</h3>
+<h3 align="center">Powered by Next.js ⚡</h3>
 
 <h3>NOTE: To keep icons consistent and to ensure browser support, we don't accept pull requests for icon submissions. If you would like an icon added, please open an issue.<h3>
 
@@ -331,3 +331,132 @@ Thank you so much already for using my projects! If you want to go a step furthe
 <a href='https://ko-fi.com/Q5Q860KQ2' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi1.png?v=3' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
 To support the project directly, feel free to open issues for icon suggestions, or contribute with a pull request!
+
+---
+
+## 🚀 Development
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Getting Started
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+2. **Build the icons JSON file:**
+   ```bash
+   npm run build
+   ```
+   This generates `dist/icons.json` from the SVG files in the `icons/` directory.
+
+3. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+   The app will be available at `http://localhost:3000`
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+5. **Start production server:**
+   ```bash
+   npm start
+   ```
+
+### Project Structure
+
+```
+skill-icons/
+├── app/                    # Next.js App Router (Next.js 14+)
+│   ├── api/               # API routes
+│   │   ├── icons/        # GET /api/icons endpoint
+│   │   │   └── route.js  # Returns list of all icon names
+│   │   └── svgs/         # GET /api/svgs endpoint
+│   │       └── route.js  # Returns all SVG data as JSON
+│   ├── icons/            # GET /icons endpoint
+│   │   └── route.js      # Generates combined SVG icons
+│   ├── layout.js         # Root layout with metadata
+│   ├── page.js           # Homepage (API documentation)
+│   ├── icon.svg          # Favicon
+│   └── apple-icon.svg    # Apple touch icon
+├── icons/                 # SVG icon files (399+ icons)
+├── lib/                   # Shared utilities
+│   └── icons.js          # Icon processing logic (parsing, SVG generation)
+├── dist/                  # Build output
+│   └── icons.json        # Generated icon data (created by build.js)
+├── build.js               # Build script - generates dist/icons.json
+├── next.config.js         # Next.js configuration
+├── jsconfig.json          # JavaScript path aliases
+└── vercel.json            # Vercel deployment configuration
+```
+
+### Technology Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Runtime**: Node.js 18+
+- **Language**: JavaScript (ES6+)
+- **Deployment**: Vercel (or any Next.js-compatible platform)
+
+### How It Works
+
+1. **Build Process**: 
+   - `build.js` reads all SVG files from the `icons/` directory
+   - Creates `dist/icons.json` with icon name → SVG content mapping
+   - This JSON file is loaded at runtime by the API routes
+
+2. **API Routes** (Next.js App Router):
+   - Route handlers are defined in `app/*/route.js` files
+   - Each route exports `GET` and `OPTIONS` functions
+   - Routes automatically handle CORS and caching headers
+
+3. **Icon Processing**:
+   - `lib/icons.js` contains shared logic for:
+     - Parsing short names (e.g., `js` → `javascript`)
+     - Applying themes (dark/light)
+     - Generating combined SVG images
+     - Validating icon names
+
+4. **Request Flow**:
+   - User requests `/icons?i=js,html,css`
+   - Route handler parses query parameters
+   - Icon names are resolved and validated
+   - SVG is generated and returned with proper headers
+
+### API Endpoints
+
+- **`GET /icons`** - Generate combined SVG icons
+  - Query params: `i` or `icons` (required), `t` or `theme` (optional), `perline` (optional)
+  - Example: `/icons?i=js,html,css&theme=dark&perline=4`
+  - Returns: SVG image with combined icons
+  
+- **`GET /api/icons`** - Get list of all available icon names
+  - Returns: JSON array of icon short names
+  - Example: `["js", "html", "css", "react", ...]`
+  
+- **`GET /api/svgs`** - Get all SVG data as JSON
+  - Returns: JSON object mapping icon names to SVG content
+  - Example: `{"javascript-dark": "<svg>...</svg>", ...}`
+
+### Deployment
+
+This project is configured for deployment on Vercel:
+
+```bash
+vercel --prod
+```
+
+The project can also be deployed to any platform that supports Next.js:
+- Netlify
+- AWS Amplify
+- Railway
+- Render
+- etc.
