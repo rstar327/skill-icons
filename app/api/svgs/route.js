@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-const { icons } = require('../../../lib/icons');
+import { icons } from '../../../lib/icons';
 
 export async function GET() {
   try {
@@ -11,7 +11,8 @@ export async function GET() {
       },
     });
   } catch (err) {
-    return new NextResponse(err.stack, { status: 500 });
+    console.error('Error in /api/svgs:', err);
+    return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 

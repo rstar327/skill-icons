@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-const { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } = require('../../lib/icons');
-
+import { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } from '../../lib/icons';
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -40,7 +39,8 @@ export async function GET(request) {
       },
     });
   } catch (err) {
-    return new NextResponse(err.stack, { status: 500 });
+    console.error('Error in GET /icons:', err);
+    return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 
