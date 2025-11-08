@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
-import { icons } from '../../../lib/icons';
+const { icons } = require('../../../lib/icons');
 
+/**
+ * Serve the icons dataset as a JSON HTTP response for GET requests.
+ *
+ * @returns {Response} A response containing the icons data serialized as JSON with CORS and Cache-Control headers. On failure, returns a 500 response whose body contains the error stack.
+ */
 export async function GET() {
   try {
     return NextResponse.json(icons, {

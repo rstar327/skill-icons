@@ -3,6 +3,16 @@ export const metadata = {
   description: 'Generate dynamic SVG skill icons for your GitHub profile or resume!',
 };
 
+/**
+ * Render the Skill Icons API documentation page.
+ *
+ * Displays a static, styled overview of the API including available endpoints
+ * (GET /icons, GET /api/icons, GET /api/svgs), query parameter descriptions,
+ * example requests, and a quick-test image demonstrating an icons request.
+ * The component contains only presentational JSX and requires no props.
+ *
+ * @returns {JSX.Element} The rendered documentation page JSX.
+ */
 export default function Home() {
   return (
     <div style={{
@@ -76,4 +86,3 @@ export default function Home() {
     </div>
   );
 }
-

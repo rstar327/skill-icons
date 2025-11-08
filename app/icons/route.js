@@ -1,5 +1,24 @@
 import { NextResponse } from 'next/server';
-import { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } from '../../lib/icons';
+const { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } = require('../../lib/icons');
+
+/**
+ * Generate an SVG containing the requested icons based on URL query parameters.
+ *
+ * Parses query parameters from `request.url` to determine which icons to include (`i` or `icons`),
+ * the theme (`t` or `theme`, must be "light" or "dark" if provided), and how many icons per line
+ * (`perline`, integer between 1 and 50). Validates inputs, resolves short names to icon identifiers,
+ * generates the combined SVG, and returns it with appropriate CORS and caching headers.
+ *
+ * @param {Request} request - Incoming request whose URL query parameters specify icons and options.
+ *   Recognized query parameters:
+ *     - `i` or `icons`: comma-separated icon short names or `all`.
+ *     - `t` or `theme`: optional; either `"light"` or `"dark"`.
+ *     - `perline`: optional; integer between 1 and 50 controlling icons per row.
+ * @returns {NextResponse} An HTTP response:
+ *   - On success: a response with `Content-Type: image/svg+xml` containing the generated SVG.
+ *   - On client error: a 400 response with a short message describing the validation failure.
+ *   - On server error: a 500 response containing the error stack.
+ */
 export async function GET(request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -53,4 +72,3 @@ export async function OPTIONS() {
     },
   });
 }
-
