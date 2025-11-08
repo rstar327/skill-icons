@@ -18,15 +18,11 @@ export async function GET() {
       },
     });
   } catch (err) {
-    return new NextResponse(err.stack, { status: 500 });
+    console.error('Error in GET /api/icons:', err);
+    return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 
-/**
- * Responds to CORS preflight requests for the icons endpoint.
- *
- * @returns {NextResponse} A response with headers that allow any origin, the GET method, and the `Content-Type` request header.
- */
 export async function OPTIONS() {
   return new NextResponse(null, {
     headers: {

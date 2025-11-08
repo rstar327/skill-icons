@@ -374,7 +374,7 @@ To support the project directly, feel free to open issues for icon suggestions, 
 
 ### Project Structure
 
-```
+```plaintext
 skill-icons/
 ├── app/                    # Next.js App Router (Next.js 14+)
 │   ├── api/               # API routes

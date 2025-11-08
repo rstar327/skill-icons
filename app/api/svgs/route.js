@@ -16,16 +16,11 @@ export async function GET() {
       },
     });
   } catch (err) {
-    return new NextResponse(err.stack, { status: 500 });
+    console.error('Error in /api/svgs:', err);
+    return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 
-/**
- * Responds to CORS preflight requests for the SVGs API.
- *
- * Sets headers allowing any origin, the GET method, and the `Content-Type` request header.
- * @returns {NextResponse} A response with no body and CORS headers permitting any origin, the GET method, and the `Content-Type` header.
- */
 export async function OPTIONS() {
   return new NextResponse(null, {
     headers: {
@@ -35,3 +30,4 @@ export async function OPTIONS() {
     },
   });
 }
+

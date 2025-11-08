@@ -58,15 +58,11 @@ export async function GET(request) {
       },
     });
   } catch (err) {
-    return new NextResponse(err.stack, { status: 500 });
+    console.error('Error in GET /icons:', err);
+    return new NextResponse('Internal Server Error', { status: 500 });
   }
 }
 
-/**
- * Responds to CORS preflight requests with headers that permit cross-origin GET requests.
- *
- * @returns {NextResponse} A response containing CORS headers that allow any origin, the GET method, and the `Content-Type` header.
- */
 export async function OPTIONS() {
   return new NextResponse(null, {
     headers: {
