@@ -98,7 +98,7 @@ Here's a list of all the icons currently supported. Feel free to open an issue t
 | `bun` | <img src="./icons/Bun-Dark.svg" width="48"> | `c` | <img src="./icons/C.svg" width="48"> | `cs` | <img src="./icons/CS.svg" width="48"> |
 | `cpp` | <img src="./icons/CPP.svg" width="48"> | `crystal` | <img src="./icons/Crystal-Dark.svg" width="48"> | `cassandra` | <img src="./icons/Cassandra-Dark.svg" width="48"> |
 | `clion` | <img src="./icons/CLion-Dark.svg" width="48"> | `clojure` | <img src="./icons/Clojure-Dark.svg" width="48"> | `cloudflare` | <img src="./icons/Cloudflare-Dark.svg" width="48"> |
-| `claude_ai` | <img src="./icons/Claude_AI.svg" width="48"> | `cmake` | <img src="./icons/CMake-Dark.svg" width="48"> | `codepen` | <img src="./icons/CodePen-Dark.svg" width="48"> |
+| `claude_ai` | <img src="./icons/Claude_AI.svg" width="48"> | `chatgpt` | <img src="./icons/ChatGPT.svg" width="48"> | `cmake` | <img src="./icons/CMake-Dark.svg" width="48"> |
 | `css` | <img src="./icons/CSS.svg" width="48"> | `cypress` | <img src="./icons/Cypress-Dark.svg" width="48"> | `d3` | <img src="./icons/D3-Dark.svg" width="48"> |
 | `dart` | <img src="./icons/Dart-Dark.svg" width="48"> | `debian` | <img src="./icons/Debian-Dark.svg" width="48"> | `deno` | <img src="./icons/DENO-Dark.svg" width="48"> |
 | `devto` | <img src="./icons/DevTo-Dark.svg" width="48"> | `discord` | <img src="./icons/Discord.svg" width="48"> | `bots` | <img src="./icons/DiscordBots.svg" width="48"> |
