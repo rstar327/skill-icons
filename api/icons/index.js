@@ -1,5 +1,5 @@
 // Vercel API route for /icons endpoint
-const { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } = require('../lib/icons');
+const { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } = require('../../lib/icons');
 
 module.exports = function handler(req, res) {
   try {
@@ -18,7 +18,7 @@ module.exports = function handler(req, res) {
     }
     
     const perLine = parseInt(query.perline) || ICONS_PER_LINE;
-    if (isNaN(perLine) || perLine < -1 || perLine > 50) {
+    if (isNaN(perLine) || perLine < 1 || perLine > 50) {
       res.status(400).send('Icons per line must be a number between 1 and 50');
       return;
     }
