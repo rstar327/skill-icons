@@ -1,7 +1,16 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"
+    }
+  },
   "rewrites": [
+    {
+      "source": "/",
+      "destination": "/api"
+    },
     {
       "source": "/icons",
       "destination": "/api/icons"

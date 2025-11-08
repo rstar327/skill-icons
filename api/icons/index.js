@@ -1,7 +1,7 @@
 // Vercel API route for /icons endpoint
 const { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } = require('../../lib/icons');
 
-module.exports = function handler(req, res) {
+module.exports = (req, res) => {
   try {
     const { query } = req;
     const iconParam = query.i || query.icons;
