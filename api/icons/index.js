@@ -2,6 +2,14 @@
 const { generateSvg, parseShortNames, iconNameList, ICONS_PER_LINE } = require('../../lib/icons');
 
 module.exports = (req, res) => {
+  // Handle CORS preflight requests
+  if (req.method === 'OPTIONS') {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    return res.status(200).end();
+  }
+
   try {
     const { query } = req;
     const iconParam = query.i || query.icons;
@@ -36,6 +44,9 @@ module.exports = (req, res) => {
     const svg = generateSvg(iconNames, perLine);
 
     res.setHeader('Content-Type', 'image/svg+xml');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
     res.status(200).send(svg);
   } catch (err) {
     res.status(500).send(err.stack);
