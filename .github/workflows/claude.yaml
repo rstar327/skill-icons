@@ -13,7 +13,13 @@ on:
 
 jobs:
   claude-pr:
-    if: contains(github.event.comment.body, '@claude')
+jobs:
+  claude-pr:
+    if: |
+      contains(github.event.comment.body, '@claude') &&
+      (github.event.comment.author_association == 'OWNER' ||
+       github.event.comment.author_association == 'COLLABORATOR')
+    runs-on: ubuntu-latest
     runs-on: ubuntu-latest
     permissions:
       contents: read
