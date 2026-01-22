@@ -1,19 +1,19 @@
 {
-	"name": "skill-icons",
-	"version": "1.0.0",
-	"license": "MIT",
-	"scripts": {
-		"dev": "node build.js && next dev",
-		"build": "node build.js && next build",
-		"start": "next start",
-		"lint": "next lint"
-	},
-	"dependencies": {
-		"next": "^14.0.0",
-		"react": "^18.2.0",
-		"react-dom": "^18.2.0"
-	},
-	"devDependencies": {
-		"prettier": "^2.5.1"
-	}
+  "name": "skill-icons",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node build.js && next dev",
+    "build": "node build.js && next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "14.2.35",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  }
 }
